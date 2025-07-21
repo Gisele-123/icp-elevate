@@ -1,0 +1,400 @@
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { 
+  Plus,
+  Briefcase, 
+  Users, 
+  Clock, 
+  Star, 
+  TrendingUp,
+  Eye,
+  MessageSquare,
+  Calendar,
+  ChevronRight,
+  MapPin,
+  DollarSign,
+  Filter
+} from 'lucide-react';
+import { Link } from 'react-router-dom';
+
+export const EmployerDashboard = () => {
+  const activeJobs = [
+    {
+      id: 1,
+      title: "Senior React Developer",
+      location: "Remote",
+      salary: "$120K - $160K",
+      posted: "5 days ago",
+      applications: 23,
+      views: 156,
+      status: "Active"
+    },
+    {
+      id: 2,
+      title: "Product Manager",
+      location: "San Francisco, CA",
+      salary: "$130K - $180K",
+      posted: "2 days ago",
+      applications: 12,
+      views: 89,
+      status: "Active"
+    },
+    {
+      id: 3,
+      title: "UX Designer",
+      location: "New York, NY",
+      salary: "$90K - $130K",
+      posted: "1 week ago",
+      applications: 34,
+      views: 203,
+      status: "Reviewing"
+    }
+  ];
+
+  const candidates = [
+    {
+      name: "Sarah Johnson",
+      title: "Senior React Developer",
+      location: "San Francisco, CA",
+      matchScore: 94,
+      experience: "5+ years",
+      skills: ["React", "TypeScript", "Node.js", "AWS"],
+      status: "New Application",
+      appliedFor: "Senior React Developer"
+    },
+    {
+      name: "Michael Chen",
+      title: "Full Stack Engineer",
+      location: "Remote",
+      matchScore: 89,
+      experience: "4+ years",
+      skills: ["React", "Python", "Docker", "PostgreSQL"],
+      status: "Interview Scheduled",
+      appliedFor: "Senior React Developer"
+    },
+    {
+      name: "Emily Rodriguez",
+      title: "Product Designer",
+      location: "Austin, TX",
+      matchScore: 92,
+      experience: "6+ years",
+      skills: ["Figma", "User Research", "Prototyping", "Design Systems"],
+      status: "Under Review",
+      appliedFor: "UX Designer"
+    }
+  ];
+
+  const interviews = [
+    {
+      candidate: "Sarah Johnson",
+      position: "Senior React Developer",
+      time: "Today, 2:00 PM",
+      type: "Technical Interview",
+      status: "Confirmed"
+    },
+    {
+      candidate: "Alex Kim",
+      position: "Product Manager",
+      time: "Tomorrow, 10:00 AM",
+      type: "Cultural Fit",
+      status: "Pending"
+    },
+    {
+      candidate: "David Brown",
+      position: "UX Designer",
+      time: "Friday, 3:00 PM",
+      type: "Portfolio Review",
+      status: "Confirmed"
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-background p-4 md:p-6">
+      <div className="max-w-7xl mx-auto space-y-6">
+        {/* Header */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+          <div>
+            <h1 className="text-3xl font-bold text-foreground">Hiring Dashboard</h1>
+            <p className="text-muted-foreground">Manage your job postings and track candidates</p>
+          </div>
+          <Button variant="hero" size="lg">
+            <Plus className="w-4 h-4 mr-2" />
+            Post New Job
+          </Button>
+        </div>
+
+        {/* Stats Overview */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <Card>
+            <CardContent className="p-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm font-medium text-muted-foreground">Active Jobs</p>
+                  <p className="text-2xl font-bold">12</p>
+                  <p className="text-xs text-success">+2 this week</p>
+                </div>
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                  <Briefcase className="w-6 h-6 text-primary" />
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardContent className="p-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm font-medium text-muted-foreground">Total Applications</p>
+                  <p className="text-2xl font-bold">156</p>
+                  <p className="text-xs text-info">23 new today</p>
+                </div>
+                <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center">
+                  <Users className="w-6 h-6 text-secondary" />
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardContent className="p-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm font-medium text-muted-foreground">Response Rate</p>
+                  <p className="text-2xl font-bold">78%</p>
+                  <p className="text-xs text-success">+5% from last month</p>
+                </div>
+                <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
+                  <TrendingUp className="w-6 h-6 text-accent" />
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardContent className="p-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm font-medium text-muted-foreground">Avg. Time to Hire</p>
+                  <p className="text-2xl font-bold">18d</p>
+                  <p className="text-xs text-warning">Industry avg: 24d</p>
+                </div>
+                <div className="w-12 h-12 bg-success/10 rounded-lg flex items-center justify-center">
+                  <Clock className="w-6 h-6 text-success" />
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {/* Active Job Postings */}
+          <div className="lg:col-span-2">
+            <Card>
+              <CardHeader>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <CardTitle className="flex items-center gap-2">
+                      <Briefcase className="w-5 h-5 text-primary" />
+                      Active Job Postings
+                    </CardTitle>
+                    <CardDescription>
+                      Monitor performance of your current job listings
+                    </CardDescription>
+                  </div>
+                  <Link to="/jobs/manage">
+                    <Button variant="outline">
+                      Manage All
+                      <ChevronRight className="w-4 h-4 ml-2" />
+                    </Button>
+                  </Link>
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {activeJobs.map((job) => (
+                  <div key={job.id} className="border rounded-lg p-4 hover:shadow-md transition-shadow">
+                    <div className="flex justify-between items-start mb-3">
+                      <div className="flex-1">
+                        <h3 className="font-semibold text-lg text-foreground hover:text-primary cursor-pointer">
+                          {job.title}
+                        </h3>
+                        <div className="flex items-center gap-4 text-sm text-muted-foreground mt-1">
+                          <div className="flex items-center">
+                            <MapPin className="w-4 h-4 mr-1" />
+                            {job.location}
+                          </div>
+                          <div className="flex items-center">
+                            <DollarSign className="w-4 h-4 mr-1" />
+                            {job.salary}
+                          </div>
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <Badge variant={job.status === 'Active' ? 'default' : 'secondary'}>
+                          {job.status}
+                        </Badge>
+                        <p className="text-xs text-muted-foreground mt-1">{job.posted}</p>
+                      </div>
+                    </div>
+                    
+                    <div className="grid grid-cols-3 gap-4 mb-3">
+                      <div className="text-center">
+                        <div className="flex items-center justify-center text-lg font-semibold text-secondary">
+                          <Users className="w-4 h-4 mr-1" />
+                          {job.applications}
+                        </div>
+                        <p className="text-xs text-muted-foreground">Applications</p>
+                      </div>
+                      <div className="text-center">
+                        <div className="flex items-center justify-center text-lg font-semibold text-info">
+                          <Eye className="w-4 h-4 mr-1" />
+                          {job.views}
+                        </div>
+                        <p className="text-xs text-muted-foreground">Views</p>
+                      </div>
+                      <div className="text-center">
+                        <div className="flex items-center justify-center text-lg font-semibold text-accent">
+                          <TrendingUp className="w-4 h-4 mr-1" />
+                          {Math.round((job.applications / job.views) * 100)}%
+                        </div>
+                        <p className="text-xs text-muted-foreground">Conv. Rate</p>
+                      </div>
+                    </div>
+
+                    <div className="flex gap-2">
+                      <Button size="sm" variant="outline">
+                        View Details
+                      </Button>
+                      <Button size="sm" variant="outline">
+                        <Filter className="w-4 h-4 mr-1" />
+                        Review Candidates
+                      </Button>
+                      <Button size="sm" variant="ghost">
+                        Edit Job
+                      </Button>
+                    </div>
+                  </div>
+                ))}
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Sidebar */}
+          <div className="space-y-6">
+            {/* Top Candidates */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Star className="w-5 h-5 text-warning" />
+                  Top Candidates
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {candidates.slice(0, 3).map((candidate, index) => (
+                  <div key={index} className="border rounded-lg p-3">
+                    <div className="flex justify-between items-start mb-2">
+                      <div className="flex-1">
+                        <h4 className="font-medium text-sm">{candidate.name}</h4>
+                        <p className="text-xs text-muted-foreground">{candidate.title}</p>
+                      </div>
+                      <Badge variant="secondary" className="text-xs">
+                        {candidate.matchScore}% Match
+                      </Badge>
+                    </div>
+                    
+                    <div className="text-xs text-muted-foreground mb-2">
+                      Applied for: {candidate.appliedFor}
+                    </div>
+                    
+                    <div className="flex flex-wrap gap-1 mb-2">
+                      {candidate.skills.slice(0, 3).map((skill, skillIndex) => (
+                        <Badge key={skillIndex} variant="outline" className="text-xs">
+                          {skill}
+                        </Badge>
+                      ))}
+                    </div>
+                    
+                    <div className="flex gap-1">
+                      <Button size="sm" className="text-xs h-7">
+                        View Profile
+                      </Button>
+                      <Button size="sm" variant="outline" className="text-xs h-7">
+                        <MessageSquare className="w-3 h-3 mr-1" />
+                        Message
+                      </Button>
+                    </div>
+                  </div>
+                ))}
+                <Link to="/candidates">
+                  <Button variant="outline" className="w-full">
+                    View All Candidates
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+
+            {/* Upcoming Interviews */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Calendar className="w-5 h-5 text-info" />
+                  Upcoming Interviews
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                {interviews.map((interview, index) => (
+                  <div key={index} className="flex items-center justify-between">
+                    <div className="flex-1">
+                      <p className="font-medium text-sm">{interview.candidate}</p>
+                      <p className="text-xs text-muted-foreground">{interview.position}</p>
+                      <p className="text-xs text-muted-foreground">{interview.type}</p>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-xs font-medium">{interview.time}</p>
+                      <Badge 
+                        variant={interview.status === 'Confirmed' ? 'default' : 'secondary'}
+                        className="text-xs"
+                      >
+                        {interview.status}
+                      </Badge>
+                    </div>
+                  </div>
+                ))}
+                <Link to="/interviews">
+                  <Button variant="outline" className="w-full">
+                    Manage Interviews
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+
+            {/* Quick Actions */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Quick Actions</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-2">
+                <Button variant="outline" className="w-full justify-start">
+                  <Plus className="w-4 h-4 mr-2" />
+                  Post New Job
+                </Button>
+                <Button variant="outline" className="w-full justify-start">
+                  <Users className="w-4 h-4 mr-2" />
+                  Browse Talent Pool
+                </Button>
+                <Button variant="outline" className="w-full justify-start">
+                  <TrendingUp className="w-4 h-4 mr-2" />
+                  View Analytics
+                </Button>
+                <Button variant="outline" className="w-full justify-start">
+                  <MessageSquare className="w-4 h-4 mr-2" />
+                  Messages
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
