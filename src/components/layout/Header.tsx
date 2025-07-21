@@ -25,7 +25,7 @@ export const Header = ({ isAuthenticated = false, userRole }: HeaderProps) => {
             <div className="w-8 h-8 bg-gradient-to-r from-primary to-accent rounded-lg flex items-center justify-center">
               <Briefcase className="w-5 h-5 text-white" />
             </div>
-            <span className="text-xl font-bold text-foreground">TalentNexus</span>
+            <span className="text-xl font-bold text-foreground">Elevate</span>
           </Link>
 
           {/* Desktop Navigation */}
