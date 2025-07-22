@@ -16,6 +16,11 @@ export const Header = ({ isAuthenticated = false, userRole }: HeaderProps) => {
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
+  const signOut = () => {
+    // Placeholder: Add real sign out logic here
+    window.location.href = '/';
+  };
+
   return (
     <header className="bg-card border-b border-border shadow-sm sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -102,6 +107,7 @@ export const Header = ({ isAuthenticated = false, userRole }: HeaderProps) => {
                 <Button variant="ghost" size="icon">
                   <User className="w-4 h-4" />
                 </Button>
+                <Button variant="destructive" onClick={signOut}>Sign Out</Button>
               </>
             ) : (
               <>
@@ -160,6 +166,7 @@ export const Header = ({ isAuthenticated = false, userRole }: HeaderProps) => {
                   >
                     Community
                   </Link>
+                  <Button variant="destructive" className="mt-4" onClick={signOut}>Sign Out</Button>
                 </>
               ) : (
                 <>
