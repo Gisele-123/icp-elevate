@@ -16,6 +16,9 @@ import HowItWorksPage from './pages/HowItWorksPage';
 import AboutPage from './pages/AboutPage';
 import BackToTopButton from './components/ui/BackToTopButton';
 import PostJobPage from './pages/PostJobPage';
+import SettingsPage from './pages/SettingsPage';
+import PreferencesPage from './pages/PreferencesPage';
+import JobDetailPage from './pages/JobDetailPage';
 
 const queryClient = new QueryClient();
 
@@ -43,6 +46,9 @@ const App = () => {
                 <Route path="/how-it-works" element={<HowItWorksPage />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/post-job" element={<PostJobPage />} />
+                <Route path="/settings" element={<SettingsPage />} />
+                <Route path="/preferences" element={<PreferencesPage />} />
+                <Route path="/job/:id" element={<JobDetailPage />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>

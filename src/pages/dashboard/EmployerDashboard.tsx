@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -14,11 +15,17 @@ import {
   ChevronRight,
   MapPin,
   DollarSign,
-  Filter
+  Filter,
+  User
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export const EmployerDashboard = () => {
+  const navigate = useNavigate();
+  const [profileMenuOpen, setProfileMenuOpen] = useState(false);
+  const handleSignOut = () => {
+    window.location.href = '/';
+  };
   const activeJobs = [
     {
       id: 1,
@@ -110,18 +117,50 @@ export const EmployerDashboard = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background p-4 md:p-6">
-      <div className="max-w-7xl mx-auto space-y-6">
+    <div className="min-h-screen bg-background p-4 md:p-6 flex">
+      {/* Profile Sidebar */}
+      <div className="w-48 mr-8 flex flex-col items-center">
+        <div className="relative">
+          <div
+            className="w-16 h-16 rounded-full bg-primary flex items-center justify-center cursor-pointer border-4 border-primary/30"
+            onClick={() => setProfileMenuOpen((v) => !v)}
+          >
+            <User className="w-8 h-8 text-white" />
+          </div>
+          {profileMenuOpen && (
+            <div className="absolute left-0 mt-2 w-40 bg-card border rounded-lg shadow-lg z-50">
+              <button
+                className="w-full text-left px-4 py-2 hover:bg-muted"
+                onClick={() => { setProfileMenuOpen(false); navigate('/settings'); }}
+              >
+                Settings
+              </button>
+              <button
+                className="w-full text-left px-4 py-2 hover:bg-muted text-destructive"
+                onClick={handleSignOut}
+              >
+                Sign Out
+              </button>
+            </div>
+          )}
+        </div>
+        <div className="mt-2 font-semibold text-foreground">TechFlow Inc.</div>
+        <div className="text-xs text-muted-foreground mb-4">Employer</div>
+      </div>
+      {/* Main Dashboard Content */}
+      <div className="flex-1">
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <div>
             <h1 className="text-3xl font-bold text-foreground">Hiring Dashboard</h1>
             <p className="text-muted-foreground">Manage your job postings and track candidates</p>
           </div>
-          <Button variant="hero" size="lg">
-            <Plus className="w-4 h-4 mr-2" />
-            Post New Job
-          </Button>
+          <Link to="/post-job">
+            <Button variant="hero" size="lg">
+              <Plus className="w-4 h-4 mr-2" />
+              Post New Job
+            </Button>
+          </Link>
         </div>
 
         {/* Stats Overview */}
@@ -374,9 +413,11 @@ export const EmployerDashboard = () => {
                 <CardTitle>Quick Actions</CardTitle>
               </CardHeader>
               <CardContent className="space-y-2">
-                <Button variant="outline" className="w-full justify-start">
-                  <Plus className="w-4 h-4 mr-2" />
-                  Post New Job
+                <Button variant="outline" className="w-full justify-start" asChild>
+                  <Link to="/post-job">
+                    <Plus className="w-4 h-4 mr-2" />
+                    Post New Job
+                  </Link>
                 </Button>
                 <Button variant="outline" className="w-full justify-start">
                   <Users className="w-4 h-4 mr-2" />

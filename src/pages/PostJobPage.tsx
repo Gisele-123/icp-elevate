@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { toast } from '@/components/ui/sonner';
+import { useNavigate } from 'react-router-dom';
 
 const PostJobPage = () => {
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     title: '',
     company: '',
@@ -34,6 +36,9 @@ const PostJobPage = () => {
 
   return (
     <div className="max-w-xl mx-auto py-12 px-4">
+      <Button variant="outline" className="mb-4" onClick={() => navigate('/dashboard/employer')}>
+        &larr; Go Back
+      </Button>
       <h1 className="text-2xl font-bold mb-6 text-center">Post a New Job</h1>
       <form onSubmit={handleSubmit} className="space-y-4 bg-card p-6 rounded-lg shadow">
         <Input
