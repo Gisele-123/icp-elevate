@@ -12,7 +12,7 @@ export const Footer = () => {
               <div className="w-8 h-8 bg-gradient-to-r from-primary to-accent rounded-lg flex items-center justify-center">
                 <Briefcase className="w-5 h-5 text-white" />
               </div>
-              <span className="text-xl font-bold">TalentNexus</span>
+              <span className="text-xl font-bold">Elevate</span>
             </div>
             <p className="text-neutral-light mb-6 max-w-md">
               The decentralized job marketplace that puts control back in your hands. 
@@ -92,7 +92,7 @@ export const Footer = () => {
         <div className="border-t border-neutral-light/20 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-neutral-light text-sm">
-              © 2024 TalentNexus. Built on Internet Computer Protocol.
+              © 2024 Elevate. Built on Internet Computer Protocol.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link to="/privacy" className="text-neutral-light hover:text-primary text-sm transition-colors">

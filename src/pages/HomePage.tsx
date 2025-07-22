@@ -81,7 +81,7 @@ export const HomePage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Why Choose TalentNexus?
+              Why Choose Elevate?
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Built for the modern workforce with cutting-edge technology and user-centric design.
@@ -275,7 +275,7 @@ export const HomePage = () => {
             Ready to Transform Your Career?
           </h2>
           <p className="text-xl text-white/90 mb-8">
-            Join thousands of professionals who have found their perfect match on TalentNexus.
+            Join thousands of professionals who have found their perfect match on Elevate.
           </p>
           <Link to="/register">
             <Button variant="secondary" size="xl">

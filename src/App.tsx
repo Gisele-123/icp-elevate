@@ -12,6 +12,9 @@ import { JobSeekerDashboard } from "./pages/dashboard/JobSeekerDashboard";
 import { EmployerDashboard } from "./pages/dashboard/EmployerDashboard";
 import { JobListingsPage } from "./pages/JobListingsPage";
 import NotFound from "./pages/NotFound";
+import HowItWorksPage from './pages/HowItWorksPage';
+import AboutPage from './pages/AboutPage';
+import BackToTopButton from './components/ui/BackToTopButton';
 
 const queryClient = new QueryClient();
 
@@ -36,12 +39,15 @@ const App = () => {
                 <Route path="/jobs" element={<JobListingsPage />} />
                 <Route path="/dashboard" element={<JobSeekerDashboard />} />
                 <Route path="/dashboard/employer" element={<EmployerDashboard />} />
+                <Route path="/how-it-works" element={<HowItWorksPage />} />
+                <Route path="/about" element={<AboutPage />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </main>
             <Footer />
           </div>
+          <BackToTopButton />
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Fingerprint } from 'lucide-react';
+import { toast } from '@/components/ui/sonner';
 
 export const RegisterPage = () => {
   const [role, setRole] = useState<'jobseeker' | 'employer' | null>(null);
@@ -23,13 +24,21 @@ export const RegisterPage = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    // Handle registration logic here
-    setTimeout(() => setIsLoading(false), 1000);
+    // Simulate registration logic
+    setTimeout(() => {
+      setIsLoading(false);
+      const success = Math.random() > 0.5;
+      if (success) {
+        toast.success('Account created successfully!');
+      } else {
+        toast.error('Sign up failed. Please try again.');
+      }
+    }, 1000);
   };
 
   const handleInternetIdentitySignup = () => {
     // Handle Internet Identity signup logic here
-    alert('Internet Identity sign up (ICP blockchain) coming soon!');
+    toast.info('Internet Identity sign up (ICP blockchain) coming soon!');
   };
 
   return (

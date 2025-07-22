@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Fingerprint } from 'lucide-react';
+import { toast } from '@/components/ui/sonner';
 
 export const LoginPage = () => {
   const [formData, setFormData] = useState({
@@ -17,13 +18,21 @@ export const LoginPage = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    // Handle login logic here
-    setTimeout(() => setIsLoading(false), 1000);
+    // Simulate login logic
+    setTimeout(() => {
+      setIsLoading(false);
+      const success = Math.random() > 0.5;
+      if (success) {
+        toast.success('Signed in successfully!');
+      } else {
+        toast.error('Sign in failed. Please check your credentials.');
+      }
+    }, 1000);
   };
 
   const handleInternetIdentityLogin = () => {
     // Handle Internet Identity login logic here
-    alert('Internet Identity login (ICP blockchain) coming soon!');
+    toast.info('Internet Identity login (ICP blockchain) coming soon!');
   };
 
   return (
